@@ -1,0 +1,6 @@
+40156, Finished Airing, Bandai-Namco-Entertainment, Toei-Animation, Game, Mystery, Fantasy, School, 3-min., G---All-Ages, 1, 6.63
+40197, Currently Airing, NBCUniversal-Entertainment-Japan, Estudio-nao-listado, Music, Slice of Life, Comedy, School, 4-min.-per-ep., PG-13---Teens-13-or-older, 12, 5.62
+40323, Finished Airing, Sunrise, Sunrise, Manga, Action, Comedy, Parody, 11-min.-per-ep., PG-13---Teens-13-or-older, 2, 7.64
+40351, Currently Airing, TV-Tokyo, OLM, Game, Action, Adventure, Comedy, Unknown, PG---Children, ?, 7.73
+40462, Finished Airing, Frontier-Works, Estudio-nao-listado, Game, Music, School, Shoujo, 23-min., PG-13---Teens-13-or-older, 1, 5.81
+40489, Finished Airing, Aniplex, A-1-Pictures, Light-novel, Action, Game, Adventure, 24-min., R---17+-(violence-&amp;-profanity), 1, 6.63
