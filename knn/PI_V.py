@@ -52,17 +52,17 @@ def getResposta(vizinhos):
 	votosOrdenados = sorted(classeVotos.items(), key=operator.itemgetter(1), reverse=True)# Ordena os valores do maior pro menor
 	return votosOrdenados[0][0]
 
-def runKnnOnDataset(input_to_knn):
+def runKnnOnDataset(input_to_knn, num_recomendations):
     data = load_data('.\data\dataset-no-id.csv')
     for x in range (len(data)):
         for y in range(11):
             data[x][y] = float(data[x][y])
 
-    get_recomendation(data, 11, input_to_knn)
+    get_recomendation(data, 11, input_to_knn, num_recomendations)
 
-def get_recomendation(dataset, columns, similar):
-    dados = getVizinhos(dataset, similar, 5)
+def get_recomendation(dataset, columns, similar, num_recomendations):
+    dados = getVizinhos(dataset, similar, num_recomendations)
     print(dados)
 
 
-runKnnOnDataset([1,20,29,8,11,22,3,2,2,1,12])
+runKnnOnDataset([1,20,29,8,11,22,3,2,2,1,12], 2)
