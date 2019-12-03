@@ -1,0 +1,15 @@
+A lista pode ser vista abaixo de cada valor normalizado:
+
+
+
+let scoresList = [4.0,5.0,5.5,5.75,6.0,6.25,6.5,6.6,6.7,6.8,6.9,7.0,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,8.0,8.5,9.0]
+
+let producers = ["Bandai-Visual","TV-Tokyo","Aniplex","TV-Asahi","VAP","Kadokawa-Shoten","Starchild-Records","Fuji-TV","Lantis","Geneon-Universal-Entertainment","NHK","Sotsu","AIC","Genco","TBS","Pony-Canyon","Tokyo-Movie-Shinsha","KSS","Shogakukan-Productions","Outros"]
+
+let durations = ["0-a-5min","6-a-15min","16-a-26min","27-a-60min","1hr-ou-+","Desconhecido"]
+
+let episodes = ["1","2-a-6","7-a-13","14-a-26","27-a-52","53-a-100","100+","Desconhecido"]
+
+let studios = ["Kinema-Citrus","Bones","A-1-Pictures","Production-I.G","Kyoto-Animation","J.C.-Staff","Madhouse-Inc.","Wit-Studio","Aniplex","Shin-Ei-Animation","Xebec","DLE","Gonzo","Bandai-Visual","Sunrise","Manglobe","Studio-Deen","OLM","Tatsunoko-Production","Toei-Animation","Studio-Pierrot","Funimation","White-Fox","TNK","Lerche","AIC-Build","TMS-Entertainment","Nippon-Animation","Estudio-nao-listado"]
+
+let genres = ["Action","Adventure","Sci-Fi","Comedy","Drama","Romance","Fantasy","Mystery","School","Ecchi","SliceofLife","Mecha","Magic","Military","Sports","Historical","Horror","Supernatural","Shounen","Shoujo","Outro"]
