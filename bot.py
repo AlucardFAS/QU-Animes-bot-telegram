@@ -10,7 +10,7 @@ import os
 import re
 from os.path import join, dirname
 
-TOKEN='<Insira aqui seu token>'
+TOKEN='1047348604:AAHil1ytnjkxj_SBZgfGKl1tsmwpoHXPm6w'
 
 logging.basicConfig(level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -34,7 +34,7 @@ try:
         msg = update.message.text[::-1]
         id = get_anime_id(msg)
         if id < 1:
-            resposta = "desculpe reconheço este url"
+            resposta = "desculpe não reconheço este url"
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
         else:
             recomendations = get_results_for_id(id)
