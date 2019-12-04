@@ -33,7 +33,7 @@ try:
     def echo(bot, update):
         msg = update.message.text[::-1]
         id = get_anime_id(msg)
-        if id < 0:
+        if id < 1:
             resposta = "desculpe reconheço este url"
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
         else:
