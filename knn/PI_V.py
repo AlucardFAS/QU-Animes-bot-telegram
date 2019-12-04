@@ -73,6 +73,7 @@ def get_results_for_id(id):
     data = load_data(filename)
 	instance = list(filter(lambda l: l[0] == id,data))[0]
 	recomendations = runKnnOnDataset(instance, 2)
+	recomendations = list(filter(lambda l: l[0] != id, recomendations))
 	list(map(lambda x: format_url(x), recomendations))
 
 def format_url(instance):
