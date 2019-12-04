@@ -2,6 +2,7 @@ import csv
 import sys
 import math
 import random
+import os
 import operator
 
 #Carrega o arquivo CSV
@@ -53,7 +54,9 @@ def getResposta(vizinhos):
 	return votosOrdenados[0][0]
 
 def runKnnOnDataset(input_to_knn, num_recomendations):
-    data = load_data('.\data\dataset-output.csv')
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    filename = os.path.join(dir_path, '..' , 'data', 'dataset-output.csv')
+    data = load_data(filename)
     for x in range (len(data)):
         for y in range(11):
             data[x][y] = float(data[x][y])
@@ -61,7 +64,7 @@ def runKnnOnDataset(input_to_knn, num_recomendations):
     get_recomendation(data, 11, input_to_knn, num_recomendations)
 
 def get_recomendation(dataset, columns, similar, num_recomendations):
-    dados = getVizinhos(dataaset, similar, num_recomendations)
+    dados = getVizinhos(dataset, similar, num_recomendations)
     print(dados)
 
 
