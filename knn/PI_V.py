@@ -67,5 +67,14 @@ def get_recomendation(dataset, columns, similar, num_recomendations):
     dados = getVizinhos(dataset, similar, num_recomendations)
     print(dados)
 
+def get_results_for_id(id):
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+    filename = os.path.join(dir_path, '..' , 'data', 'dataset-output.csv')
+    data = load_data(filename)
+	instance = list(filter(lambda l: l[0] == id,data))[0]
+	recomendations = runKnnOnDataset(instance, 2)
+	list(map(lambda x: format_url(x), recomendations))
 
-runKnnOnDataset([10,1,20,29,8,11,22,3,2,2,1,12], 2)
+def format_url(instance):
+	id = instance[0]
+	'https://myanimelist.net/anime/' + id
