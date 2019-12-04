@@ -36,7 +36,7 @@ def divisaoSegura(x, y):
 #calculo de distancia eucliadiana
 def distanciaEuclidiana(instancia1, instancia2, length):
 	distancia = 0
-	for x in range(length):
+	for x in range(1, length):
 		distancia += pow((instancia1[x] - instancia2[x]), 2)
 	return math.sqrt(distancia)
 
@@ -53,7 +53,7 @@ def getResposta(vizinhos):
 	return votosOrdenados[0][0]
 
 def runKnnOnDataset(input_to_knn, num_recomendations):
-    data = load_data('.\data\dataset-no-id.csv')
+    data = load_data('.\data\dataset-output.csv')
     for x in range (len(data)):
         for y in range(11):
             data[x][y] = float(data[x][y])
@@ -61,8 +61,8 @@ def runKnnOnDataset(input_to_knn, num_recomendations):
     get_recomendation(data, 11, input_to_knn, num_recomendations)
 
 def get_recomendation(dataset, columns, similar, num_recomendations):
-    dados = getVizinhos(dataset, similar, num_recomendations)
+    dados = getVizinhos(dataaset, similar, num_recomendations)
     print(dados)
 
 
-runKnnOnDataset([1,20,29,8,11,22,3,2,2,1,12], 2)
+runKnnOnDataset([10,1,20,29,8,11,22,3,2,2,1,12], 2)
