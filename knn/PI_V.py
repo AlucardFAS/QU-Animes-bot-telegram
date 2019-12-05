@@ -61,11 +61,12 @@ def runKnnOnDataset(input_to_knn, num_recomendations):
         for y in range(12):
             data[x][y] = float(data[x][y])
 
-    get_recomendation(data, 12, input_to_knn, num_recomendations)
+    return get_recomendation(data, 12, input_to_knn, num_recomendations)
 
 def get_recomendation(dataset, columns, similar, num_recomendations):
     dados = getVizinhos(dataset, similar, num_recomendations)
     print(dados)
+    return dados
 
 def convert_to_float(data):
     for x in range (len(data)):
@@ -83,12 +84,17 @@ def get_results_for_id(id):
     if len(instances) < 1:
         return ["anime não encontrado"]
     instance = instances[0]
-    recomendations = runKnnOnDataset(instance, 2)
+    recomendations = runKnnOnDataset(instance, 6)
     print('recomendations')
     print(recomendations)
     distinct_recomendations = list(filter(lambda l: l[0] != id, recomendations))
-    list(map(lambda x: format_url(x), distinct_recomendations))
+    print('distinct_recomendations')
+    print(distinct_recomendations)
+    result = list(map(lambda x: format_url(x), distinct_recomendations))
+    print('result')
+    print(result)
+    return result
 
 def format_url(instance):
 	id = instance[0]
-	'https://myanimelist.net/anime/' + id
+	return 'https://myanimelist.net/anime/' + str(int(id))
