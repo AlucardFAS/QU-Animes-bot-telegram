@@ -84,7 +84,7 @@ def get_results_for_id(id):
         return ["anime não encontrado"]
     instance = instances[0]
     recomendations = runKnnOnDataset(instance, 2)
-	print('recomendations')
+    print('recomendations')
     print(recomendations)
     distinct_recomendations = list(filter(lambda l: l[0] != id, recomendations))
     list(map(lambda x: format_url(x), distinct_recomendations))

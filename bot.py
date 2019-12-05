@@ -36,12 +36,13 @@ try:
         id = get_anime_id(msg)
         print(id)
         if id < 1:
-            resposta = "desculpe não reconheço este url"
+            resposta = "Perdão meu fã de loli, ou a url está errada ou não reconheço esse id :("
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
         else:
             recomendations = get_results_for_id(id)
             for rec in recomendations:
-                bot.send_message(chat_id=update.message.chat_id, text=rec, parse_mode=telegram.ParseMode.HTML)
+                response = "Tu vai curtir essa parada aqui: " + rec
+                bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
 
     echo_handler = MessageHandler(Filters.text, echo)
     dispatcher.add_handler(echo_handler)
