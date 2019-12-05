@@ -40,16 +40,26 @@ try:
         id = get_anime_id(msg)
         print(id)
         if id < 1:
-            resposta = "Perdão meu fã de loli, ou a url está errada ou não reconheço esse id :("
+            resposta = "AUAUAU, Perdão meu fã de loli, um cachorro não sabe ler AU, por AU favor, envia a url corretamente AU AU"
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
             response = bot.send_photo(chat_id=update.message.chat_id, photo='AgADAQADVqgxG8GdSEcp1xKxcYP6YrbrawYABAEAAwIAA20AA_2rAQABFgQ', parse_mode=telegram.ParseMode.HTML)
             resposta = "Me envie um link de um anime do MyAnimeList, tipo https://myanimelist.net/anime/450"
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
         else:
             recomendations = get_results_for_id(id)
+            
+            is_first_trocacao_de_ideia = False
+            
             for rec in recomendations:
-                response = "Tu vai curtir essa parada aqui: " + rec
-                bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
+                if not is_first_trocacao_de_ideia:
+                    response = "AU Tu vai curtir essa parada aqui, AU: " + rec
+                    bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
+                    is_first_trocacao_de_ideia = True
+                else:
+                    response = "AU E essa: " + rec
+                    bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
+                
+
 
     echo_handler = MessageHandler(Filters.text, echo)
     dispatcher.add_handler(echo_handler)
