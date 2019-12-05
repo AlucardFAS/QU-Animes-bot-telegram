@@ -32,15 +32,18 @@ def get_anime_id(url):
 try:
     def echo(bot, update):
         msg = update.message.text[::-1]
-        id = get_anime_id(msg)
-        if (id < 1 or id > 40489):
-            response = "Perdão meu fã de loli, ou a url está errada ou não reconheço esse id :("
-            bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
-        else:
-            recomendations = get_results_for_id(id)
-            for x in len(recomendations):
-                response = "Tu vai curtir essa parada aqui: " + recomendations[x]
-                bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
+
+        bot.send_message(chat_id=update.message.chat_id, text=msg, parse_mode=telegram.ParseMode.HTML)
+
+        #id = get_anime_id(msg)
+        #if (id < 1 or id > 40489):
+        #    response = "Perdão meu fã de loli, ou a url está errada ou não reconheço esse id :("
+        #    bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
+        #else:
+        #    recomendations = get_results_for_id(id)
+        #    for x in len(recomendations):
+        #        response = "Tu vai curtir essa parada aqui: " + recomendations[x]
+        #        bot.send_message(chat_id=update.message.chat_id, text=response, parse_mode=telegram.ParseMode.HTML)
 
     echo_handler = MessageHandler(Filters.text, echo)
     dispatcher.add_handler(echo_handler)
