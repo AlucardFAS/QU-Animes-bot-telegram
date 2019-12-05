@@ -8,7 +8,6 @@ import telegram
 import logging
 import os
 import re
-from os.path import join, dirname
 
 TOKEN='1047348604:AAHil1ytnjkxj_SBZgfGKl1tsmwpoHXPm6w'
 
@@ -33,10 +32,18 @@ try:
     def echo(bot, update):
         msg = update.message.text
         print(msg)
+        if "help" in msg or "ajuda" in msg:
+            response = bot.send_photo(chat_id=update.message.chat_id, photo='AgADAQADVqgxG8GdSEcp1xKxcYP6YrbrawYABAEAAwIAA20AA_2rAQABFgQ', parse_mode=telegram.ParseMode.HTML)
+            resposta = "Me envie um link de um anime do MyAnimeList, tipo https://myanimelist.net/anime/450"
+            bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
+            return
         id = get_anime_id(msg)
         print(id)
         if id < 1:
             resposta = "Perdão meu fã de loli, ou a url está errada ou não reconheço esse id :("
+            bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
+            response = bot.send_photo(chat_id=update.message.chat_id, photo='AgADAQADVqgxG8GdSEcp1xKxcYP6YrbrawYABAEAAwIAA20AA_2rAQABFgQ', parse_mode=telegram.ParseMode.HTML)
+            resposta = "Me envie um link de um anime do MyAnimeList, tipo https://myanimelist.net/anime/450"
             bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
         else:
             recomendations = get_results_for_id(id)
