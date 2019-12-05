@@ -58,23 +58,36 @@ def runKnnOnDataset(input_to_knn, num_recomendations):
     filename = os.path.join(dir_path, '..' , 'data', 'dataset-output.csv')
     data = load_data(filename)
     for x in range (len(data)):
-        for y in range(11):
+        for y in range(12):
             data[x][y] = float(data[x][y])
 
-    get_recomendation(data, 11, input_to_knn, num_recomendations)
+    get_recomendation(data, 12, input_to_knn, num_recomendations)
 
 def get_recomendation(dataset, columns, similar, num_recomendations):
     dados = getVizinhos(dataset, similar, num_recomendations)
     print(dados)
 
+def convert_to_float(data):
+    for x in range (len(data)):
+        for y in range(12):
+            data[x][y] = float(data[x][y])
+    return data
+
 def get_results_for_id(id):
-	dir_path = os.path.dirname(os.path.realpath(__file__))
+    dir_path = os.path.dirname(os.path.realpath(__file__))
     filename = os.path.join(dir_path, '..' , 'data', 'dataset-output.csv')
     data = load_data(filename)
-	instance = list(filter(lambda l: l[0] == id,data))[0]
-	recomendations = runKnnOnDataset(instance, 2)
-	recomendations = list(filter(lambda l: l[0] != id, recomendations))
-	list(map(lambda x: format_url(x), recomendations))
+    data = convert_to_float(data)
+    instances = list(filter(lambda l: l[0] == id,data))
+    print(instances)
+    if len(instances) < 1:
+        return ["anime não encontrado"]
+    instance = instances[0]
+    recomendations = runKnnOnDataset(instance, 2)
+	print('recomendations')
+    print(recomendations)
+    distinct_recomendations = list(filter(lambda l: l[0] != id, recomendations))
+    list(map(lambda x: format_url(x), distinct_recomendations))
 
 def format_url(instance):
 	id = instance[0]

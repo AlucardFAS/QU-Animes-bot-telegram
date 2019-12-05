@@ -31,16 +31,17 @@ def get_anime_id(url):
 
 try:
     def echo(bot, update):
-        msg = update.message.text[::-1]
-        bot.send_message(chat_id=update.message.chat_id, text=msg, parse_mode=telegram.ParseMode.HTML)
-        # id = get_anime_id(msg)
-        # if id < 1:
-        #     resposta = "desculpe não reconheço este url"
-        #     bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
-        # else:
-        #     recomendations = get_results_for_id(id)
-        #     for x in len(recomendations):
-        #         bot.send_message(chat_id=update.message.chat_id, text=recomendations[x], parse_mode=telegram.ParseMode.HTML)
+        msg = update.message.text
+        print(msg)
+        id = get_anime_id(msg)
+        print(id)
+        if id < 1:
+            resposta = "desculpe não reconheço este url"
+            bot.send_message(chat_id=update.message.chat_id, text=resposta, parse_mode=telegram.ParseMode.HTML)
+        else:
+            recomendations = get_results_for_id(id)
+            for rec in recomendations:
+                bot.send_message(chat_id=update.message.chat_id, text=rec, parse_mode=telegram.ParseMode.HTML)
 
     echo_handler = MessageHandler(Filters.text, echo)
     dispatcher.add_handler(echo_handler)
